@@ -10,25 +10,27 @@
             <mat-label>Curso</mat-label>
             <input formControlName="curso" matInput placeholder="Curso">
         </mat-form-field>
-    
+
         <mat-form-field appearance="outline">
             <mat-label>Periodo</mat-label>
             <mat-select formControlName="turno" placeholder="Periodo">
-                <mat-option value="Matutirno">Matutirno</mat-option>
+                <mat-option value="Matutirno">Matutino</mat-option>
                 <mat-option value="Integral">Integral</mat-option>
+                <mat-option value="Vespertino">Vespertino</mat-option>
                 <mat-option value="Noturno">Noturno</mat-option>
             </mat-select>
         </mat-form-field>
+
         <label for=""><h1>Semestre</h1></label>
         <mat-radio-group formControlName="semestre" class="example-radio-group">
-            <mat-radio-button class="example-radio-button" *ngFor="let semestre of semestresList" value="semestre">
+            <mat-radio-button class="example-radio-button" *ngFor="let semestre of semestresList" [value]="semestre">
                 {{semestre}}
             </mat-radio-button>
         </mat-radio-group>
     </form>
 </div>
 <div mat-dialog-action [align]="'end'">
-    <button mat-raised-button color="primary" (click)="addStudent()">Salvar</button>
+    <button mat-raised-button color="primary" (click)="addStudent()">{{actionBtn}}</button>
     <button style="margin-left: 8px;" mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
 </div>
 
